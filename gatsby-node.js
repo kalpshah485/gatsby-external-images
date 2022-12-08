@@ -7,15 +7,6 @@ const { createRemoteFileNode } = require("gatsby-source-filesystem")
 /**
  * @type {import('gatsby').GatsbyNode['createPages']}
  */
-exports.createPages = async ({ actions }) => {
-  const { createPage } = actions
-  createPage({
-    path: "/using-dsg",
-    component: require.resolve("./src/templates/using-dsg.js"),
-    context: {},
-    defer: true,
-  })
-}
 
 // exports.onCreateNode = async ({ node, actions: { createNode, createNodeField }, createNoded, getCache }) => {
 //   // if (node.internal.type === "GraphQLSource") {
