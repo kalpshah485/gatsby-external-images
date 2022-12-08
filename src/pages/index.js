@@ -1,4 +1,5 @@
 import * as React from "react";
+import * as styles from '../styles/Index.module.css';
 import { graphql } from "gatsby";
 import { GatsbyImage } from "gatsby-plugin-image";
 import Seo from "../components/seo"
@@ -8,20 +9,22 @@ const IndexPage = ({ data }) => {
     <div>
       <main>
         <h1>Statically Generated Page</h1>
-        <h1>Page information:</h1>
+        {/* <h1>Page information:</h1>
         <div>
           <p>Count: {data.rickmorty.characters.info.count}</p>
           <p>Prev: {data.rickmorty.characters.info.prev}</p>
           <p>Next: {data.rickmorty.characters.info.next}</p>
           <p>Pages: {data.rickmorty.characters.info.pages}</p>
-        </div>
-        <h1>Characters:</h1>
-        <div>
+        </div> */}
+        <h1>Rick and Morty Characters:</h1>
+        <div className={styles.container}>
           {data.rickmorty.characters.results.map((character) => {
-            return (<div key={character.id}>
-              <p>{character.name}</p>
-              <GatsbyImage image={character.imageFile.childImageSharp.gatsbyImageData} alt={`${character.name}-photo`} />
-            </div>)
+            return (
+              <div className={styles.card} key={character.id}>
+                <GatsbyImage image={character.imageFile.childImageSharp.gatsbyImageData} alt={`${character.name}-photo`} />
+                <h1>{character.name}</h1>
+              </div>
+            );
           })}
         </div>
       </main>
